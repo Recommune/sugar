@@ -1,0 +1,29 @@
+buildscript {
+    apply from: 'dependencies.gradle'
+
+    repositories {
+        google()
+        jcenter()
+        mavenCentral()
+        maven { url "https://kotlin.bintray.com/kotlinx" }
+    }
+    dependencies {
+        classpath "com.android.tools.build:gradle:$androidTools"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlins"
+        classpath "com.github.ben-manes:gradle-versions-plugin:$benManes"
+        classpath "org.jetbrains.kotlinx:kotlinx-gradle-serialization-plugin:$serialization"
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+        mavenCentral()
+        maven { url "https://kotlin.bintray.com/kotlinx" }
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
