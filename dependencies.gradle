@@ -1,4 +1,5 @@
 ext.with {
+    androidMaven = '2.0'
     androidTools = '3.0.1'
     archRuntime = '1.1.0'
     archCompiler = '1.1.0'
