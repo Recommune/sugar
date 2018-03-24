@@ -24,40 +24,35 @@ internal class AndroidTestViewModel {
 
     @Test
     fun viewModel() {
-        val viewModel1 = getViewModelConstructor(id1)
-        val viewModel2 = getViewModelConstructor(id2)
-        val viewModel3 = getViewModelConstructor(id1)
+        activityTestRule.activity.apply {
+            val factory1 = viewModelFactory { SomeViewModel(id1) }
+            val factory2 = viewModelFactory { SomeViewModel(id2) }
+            val viewModel1 = viewModel<SomeViewModel>(id1, factory1)
+            val viewModel2 = viewModel<SomeViewModel>(id2, factory2)
+            val viewModel3 = viewModel<SomeViewModel>(id1, factory1)
 
-        assertEquals(id1, viewModel1.id)
-        assertEquals(id2, viewModel2.id)
-        assertNotEquals(viewModel1, viewModel2)
-        assertEquals(viewModel1, viewModel3)
+            assertEquals(id1, viewModel1.id)
+            assertEquals(id2, viewModel2.id)
+            assertNotEquals(viewModel1, viewModel2)
+            assertEquals(viewModel1, viewModel3)
+        }
     }
 
     @Test
     fun androidViewModel() {
-        val viewModel1 = getAndroidViewModelConstructor(id1)
-        val viewModel2 = getAndroidViewModelConstructor(id2)
-        val viewModel3 = getAndroidViewModelConstructor(id1)
-        val application = getApplication()
+        activityTestRule.activity.apply {
+            val application = application as SomeApplication
+            val factory1 = viewModelFactory { SomeAndroidViewModel(application, id1) }
+            val factory2 = viewModelFactory { SomeAndroidViewModel(application, id2) }
+            val viewModel1 = viewModel<SomeAndroidViewModel>(id1, factory1)
+            val viewModel2 = viewModel<SomeAndroidViewModel>(id2, factory2)
+            val viewModel3 = viewModel<SomeAndroidViewModel>(id1, factory1)
 
-        assertEquals(id1, viewModel1.id)
-        assertEquals(id2, viewModel2.id)
-        assertEquals(application, viewModel1.getApplication())
-        assertNotEquals(viewModel1, viewModel2)
-        assertEquals(viewModel1, viewModel3)
-    }
-
-    private fun getApplication(): SomeApplication {
-        return activityTestRule.activity.application as SomeApplication
-    }
-
-    private fun getViewModelConstructor(id: String): SomeViewModelConstructor {
-        return activityTestRule.activity.viewModel(id, viewModelFactory { SomeViewModelConstructor(id) })
-    }
-
-    private fun getAndroidViewModelConstructor(id: String): SomeAndroidViewModelConstructor {
-        val application = getApplication()
-        return activityTestRule.activity.viewModel(id, viewModelFactory { SomeAndroidViewModelConstructor(application, id) })
+            assertEquals(id1, viewModel1.id)
+            assertEquals(id2, viewModel2.id)
+            assertEquals(application, viewModel1.getApplication())
+            assertNotEquals(viewModel1, viewModel2)
+            assertEquals(viewModel1, viewModel3)
+        }
     }
 }
