@@ -26,6 +26,11 @@ internal class AndroidTestLifecycleObserver {
     }
 
     @Test
+    fun plusAssignObserver() {
+        activityTestRule.activity += SomeLifecycleObserver()
+    }
+
+    @Test
     fun removeObserver() {
         SomeLifecycleObserver().addObserver(activityTestRule.activity)
     }
