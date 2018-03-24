@@ -16,6 +16,9 @@ internal class AndroidTestViewModel {
 
         private const val id1 = "id1"
         private const val id2 = "id2"
+
+        private const val key1 = "key1"
+        private const val key2 = "key2"
     }
 
     @Rule
@@ -27,9 +30,9 @@ internal class AndroidTestViewModel {
         activityTestRule.activity.apply {
             val factory1 = viewModelFactory { SomeViewModel(id1) }
             val factory2 = viewModelFactory { SomeViewModel(id2) }
-            val viewModel1 = viewModel<SomeViewModel>(id1, factory1)
-            val viewModel2 = viewModel<SomeViewModel>(id2, factory2)
-            val viewModel3 = viewModel<SomeViewModel>(id1, factory1)
+            val viewModel1 = viewModel<SomeViewModel>(key1, factory1)
+            val viewModel2 = viewModel<SomeViewModel>(key2, factory2)
+            val viewModel3 = viewModel<SomeViewModel>(key1, factory1)
 
             assertEquals(id1, viewModel1.id)
             assertEquals(id2, viewModel2.id)
@@ -44,9 +47,9 @@ internal class AndroidTestViewModel {
             val application = application as SomeApplication
             val factory1 = viewModelFactory { SomeAndroidViewModel(application, id1) }
             val factory2 = viewModelFactory { SomeAndroidViewModel(application, id2) }
-            val viewModel1 = viewModel<SomeAndroidViewModel>(id1, factory1)
-            val viewModel2 = viewModel<SomeAndroidViewModel>(id2, factory2)
-            val viewModel3 = viewModel<SomeAndroidViewModel>(id1, factory1)
+            val viewModel1 = viewModel<SomeAndroidViewModel>(key1, factory1)
+            val viewModel2 = viewModel<SomeAndroidViewModel>(key2, factory2)
+            val viewModel3 = viewModel<SomeAndroidViewModel>(key1, factory1)
 
             assertEquals(id1, viewModel1.id)
             assertEquals(id2, viewModel2.id)
