@@ -1,1 +1,1 @@
-include ':core', ':preferences', ':gson', ':serializer', ':arch'
+include ':core', ':preferences', ':gson', ':serializer', ':arch', ':room'

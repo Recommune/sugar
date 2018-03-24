@@ -8,6 +8,7 @@ ext.with {
     espresso = '3.0.1'
     gson = '2.8.2'
     junit = '4.12'
+    room = '1.0.0'
     sdkCompile = 27
     sdkMin = 21
     sdkTarget = 27
@@ -31,7 +32,10 @@ ext.with {
     dependency_android = [
             arch_extensions: "android.arch.lifecycle:extensions:$archRuntime",
             arch_compiler  : "android.arch.lifecycle:common-java8:$archCompiler",
-            support_library : "com.android.support:appcompat-v7:$supportLibrary",
-            espresso       : "com.android.support.test.espresso:espresso-core:$espresso"
+            support_library: "com.android.support:appcompat-v7:$supportLibrary",
+            espresso       : "com.android.support.test.espresso:espresso-core:$espresso",
+            room_runtime   : "android.arch.persistence.room:runtime:$room",
+            room_compiler  : "android.arch.persistence.room:compiler:$room",
+            room_test      : "android.arch.persistence.room:testing:$room",
     ]
 }
