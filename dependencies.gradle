@@ -1,8 +1,8 @@
 ext.with {
     androidMaven = '2.0'
     androidTools = '3.0.1'
-    archRuntime = '1.1.0'
-    archCompiler = '1.1.0'
+    archRuntime = '1.1.1'
+    archCompiler = '1.1.1'
     buildTools = '27.0.3'
     benManes = '0.17.0'
     espresso = '3.0.1'
@@ -31,7 +31,7 @@ ext.with {
     dependency_android = [
             arch_extensions: "android.arch.lifecycle:extensions:$archRuntime",
             arch_compiler  : "android.arch.lifecycle:common-java8:$archCompiler",
-            supportLibrary : "com.android.support:appcompat-v7:$supportLibrary",
+            support_library : "com.android.support:appcompat-v7:$supportLibrary",
             espresso       : "com.android.support.test.espresso:espresso-core:$espresso"
     ]
 }
