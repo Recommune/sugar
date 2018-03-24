@@ -27,7 +27,7 @@ import org.junit.runner.RunWith
 import kotlin.test.assertEquals
 
 @RunWith(AndroidJUnit4::class)
-class AndroidTestBundleDelegate {
+internal class AndroidTestBundleDelegate {
 
     private var Bundle.byte by BundleDelegate.Byte(key, byteDefault)
     private var Bundle.boolean by BundleDelegate.Boolean(key, booleanDefault)

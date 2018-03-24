@@ -6,7 +6,7 @@ import org.junit.Test
 import kotlin.test.assertEquals
 
 
-class AndroidTestBundleDelegateObject {
+internal class AndroidTestBundleDelegateObject {
 
     private var Bundle.bundle by BundleDelegate.Bundle(Constant.key)
     private var Bundle.parcelable by BundleDelegate.Parcelable<Constant.SomeParcelable>(Constant.key)

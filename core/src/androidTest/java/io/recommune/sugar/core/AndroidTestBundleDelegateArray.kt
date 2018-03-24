@@ -25,7 +25,7 @@ import kotlin.test.assertEquals
 
 
 @RunWith(AndroidJUnit4::class)
-class AndroidTestBundleDelegateArray {
+internal class AndroidTestBundleDelegateArray {
 
     private var Bundle.byteArray by BundleDelegate.ByteArray(Constant.key)
     private var Bundle.booleanArray by BundleDelegate.BooleanArray(Constant.key)

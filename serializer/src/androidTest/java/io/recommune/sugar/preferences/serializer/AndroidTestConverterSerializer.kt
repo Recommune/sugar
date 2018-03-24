@@ -15,7 +15,7 @@ import kotlin.test.assertEquals
 
 
 @RunWith(AndroidJUnit4::class)
-class AndroidTestConverterSerializer {
+internal class AndroidTestConverterSerializer {
 
     companion object {
 

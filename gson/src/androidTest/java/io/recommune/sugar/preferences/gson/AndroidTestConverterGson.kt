@@ -14,8 +14,7 @@ import org.junit.runner.RunWith
 import kotlin.test.assertEquals
 
 @RunWith(AndroidJUnit4::class)
-class AndroidTestConverterGson {
-
+internal class AndroidTestConverterGson {
 
     companion object {
 

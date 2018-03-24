@@ -12,7 +12,7 @@ import kotlin.test.assertEquals
 
 
 @RunWith(AndroidJUnit4::class)
-class AndroidTestSharedPreferencesDelegate {
+internal class AndroidTestSharedPreferencesDelegate {
 
     companion object {
 
