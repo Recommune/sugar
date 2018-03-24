@@ -1,8 +1,8 @@
 package io.recommune.sugar.arch
 
-import android.support.test.rule.ActivityTestRule
+import android.arch.lifecycle.AndroidViewModel
+import android.arch.lifecycle.ViewModel
 import android.support.test.runner.AndroidJUnit4
-import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 import kotlin.test.assertEquals
@@ -10,7 +10,7 @@ import kotlin.test.assertNotEquals
 
 
 @RunWith(AndroidJUnit4::class)
-internal class AndroidTestViewModel {
+internal class AndroidTestViewModel : AndroidTest() {
 
     companion object {
 
@@ -21,9 +21,9 @@ internal class AndroidTestViewModel {
         private const val key2 = "key2"
     }
 
-    @Rule
-    @JvmField
-    val activityTestRule = ActivityTestRule<SomeActivity>(SomeActivity::class.java)
+    private class SomeAndroidViewModel(application: SomeApplication, val id: String) : AndroidViewModel(application)
+
+    private class SomeViewModel(val id: String) : ViewModel()
 
     @Test
     fun viewModel() {
