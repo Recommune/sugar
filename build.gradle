@@ -17,6 +17,11 @@ buildscript {
 }
 
 allprojects {
+
+    buildscript {
+        apply plugin: 'com.github.ben-manes.versions'
+    }
+
     repositories {
         google()
         jcenter()
