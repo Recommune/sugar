@@ -8,12 +8,12 @@ import kotlin.test.assertEquals
 
 class AndroidTestBundleDelegateObject {
 
-    private var Bundle.bundle by BundleDelegate.Bundle(Singleton.key)
-    private var Bundle.parcelable by BundleDelegate.Parcelable<Singleton.SomeParcelable>(Singleton.key)
-    private var Bundle.serializable by BundleDelegate.Serializable(Singleton.key)
-    private var Bundle.binder by BundleDelegate.IBinder(Singleton.key)
-    private var Bundle.size by BundleDelegate.Size(Singleton.key)
-    private var Bundle.sizeF by BundleDelegate.SizeF(Singleton.key)
+    private var Bundle.bundle by BundleDelegate.Bundle(Constant.key)
+    private var Bundle.parcelable by BundleDelegate.Parcelable<Constant.SomeParcelable>(Constant.key)
+    private var Bundle.serializable by BundleDelegate.Serializable(Constant.key)
+    private var Bundle.binder by BundleDelegate.IBinder(Constant.key)
+    private var Bundle.size by BundleDelegate.Size(Constant.key)
+    private var Bundle.sizeF by BundleDelegate.SizeF(Constant.key)
 
     private lateinit var bundle: Bundle
 
@@ -24,37 +24,37 @@ class AndroidTestBundleDelegateObject {
 
     @Test
     fun bundle() {
-        bundle.bundle = Singleton.bundleValue
-        assertEquals(bundle.bundle, Singleton.bundleValue)
+        bundle.bundle = Constant.bundleValue
+        assertEquals(bundle.bundle, Constant.bundleValue)
     }
 
     @Test
     fun binder() {
-        bundle.binder = Singleton.binderValue
-        assertEquals(bundle.binder, Singleton.binderValue)
+        bundle.binder = Constant.binderValue
+        assertEquals(bundle.binder, Constant.binderValue)
     }
 
     @Test
     fun serializable() {
-        bundle.serializable = Singleton.serializableValue
-        assertEquals(bundle.serializable, Singleton.serializableValue)
+        bundle.serializable = Constant.serializableValue
+        assertEquals(bundle.serializable, Constant.serializableValue)
     }
 
     @Test
     fun size() {
-        bundle.size = Singleton.sizeValue
-        assertEquals(bundle.size, Singleton.sizeValue)
+        bundle.size = Constant.sizeValue
+        assertEquals(bundle.size, Constant.sizeValue)
     }
 
     @Test
     fun sizeF() {
-        bundle.sizeF = Singleton.sizeFValue
-        assertEquals(bundle.sizeF, Singleton.sizeFValue)
+        bundle.sizeF = Constant.sizeFValue
+        assertEquals(bundle.sizeF, Constant.sizeFValue)
     }
 
     @Test
     fun parcelable() {
-        bundle.parcelable = Singleton.parcelableValue
-        assertEquals(bundle.parcelable, Singleton.parcelableValue)
+        bundle.parcelable = Constant.parcelableValue
+        assertEquals(bundle.parcelable, Constant.parcelableValue)
     }
 }

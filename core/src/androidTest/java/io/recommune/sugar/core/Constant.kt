@@ -6,10 +6,11 @@ import android.os.Parcel
 import android.os.Parcelable
 import android.util.Size
 import android.util.SizeF
+import android.util.SparseArray
 import java.io.Serializable
 
 
-internal object Singleton {
+internal object Constant {
 
     const val key = "key"
 
@@ -38,6 +39,23 @@ internal object Singleton {
     val binderValue = Binder()
     val sizeValue = Size(0, 0)
     val sizeFValue = SizeF(0f, 0f)
+
+    val byteArray = byteArrayOf(byteValue, byteDefault)
+    val booleanArray = booleanArrayOf(booleanValue, booleanDefault)
+    val shortArray = shortArrayOf(shortValue, shortDefault)
+    val intArray = intArrayOf(intValue, intDefault)
+    val intArrayList = arrayListOf(intValue, intDefault)
+    val longArray = longArrayOf(longValue, longDefault)
+    val floatArray = floatArrayOf(floatValue, floatDefault)
+    val doubleArray = doubleArrayOf(doubleValue, doubleDefault)
+    val charArray = charArrayOf(charValue, charDefault)
+    val charSequenceArray = arrayOf<CharSequence>(stringValue, stringDefault)
+    val charSequenceArrayList = arrayListOf<CharSequence>(stringValue, stringDefault)
+    val stringArray = arrayOf(stringValue, stringDefault)
+    val stringArrayList = arrayListOf(stringValue, stringDefault)
+    val parcelableArray = arrayOf(parcelableValue)
+    val parcelableArrayList = arrayListOf(parcelableValue)
+    val parcelableSparseArray = SparseArray<SomeParcelable>(1).also { it.put(0, parcelableValue) }
 
     class SomeParcelable : Parcelable {
         override fun writeToParcel(dest: Parcel?, flags: Int) = Unit
