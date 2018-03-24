@@ -6,13 +6,13 @@ import kotlinx.serialization.serializer
 import kotlin.reflect.KClass
 
 
-class ConverterSerializer : SharedPreferencesDelegate.Converter {
+class ConverterSerializer(private val json: JSON) : SharedPreferencesDelegate.Converter {
 
     override fun <T : Any> toString(src: T, clazz: KClass<T>): String {
-        return JSON.stringify(clazz.serializer(), src)
+        return json.stringify(clazz.serializer(), src)
     }
 
     override fun <T : Any> fromString(src: String?, clazz: KClass<T>): T? {
-        return if (src != null) JSON.parse(clazz.serializer(), src) else null
+        return if (src != null) json.parse(clazz.serializer(), src) else null
     }
 }
