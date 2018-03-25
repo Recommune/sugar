@@ -30,6 +30,8 @@ allprojects {
     }
 }
 
+group = "com.github.recommune.sugar"
+
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
