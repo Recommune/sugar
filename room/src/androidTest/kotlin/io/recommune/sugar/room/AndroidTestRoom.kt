@@ -11,15 +11,24 @@ import org.junit.runners.JUnit4
 @RunWith(JUnit4::class)
 internal class AndroidTestRoom {
 
-    private class SomeRoomConcrete(room: RoomDatabase) : RoomAbstractDatabase() {
+    private abstract class RoomAbstractDatabase {
 
-        override val database: RoomDatabase = room
+        abstract val room: RoomDatabase
     }
 
-    private fun RoomAbstractDatabase.Builder.build(): RoomAbstractDatabase {
+    private class SomeRoomConcrete(override val room: RoomDatabase) : RoomAbstractDatabase()
+
+    private sealed class RoomBuilder(val context: Context) {
+
+        class Memory(context: Context) : RoomBuilder(context)
+
+        class Disk(context: Context, val databaseName: String) : RoomBuilder(context)
+    }
+
+    private fun RoomBuilder.build(): RoomAbstractDatabase {
         val room = when (this) {
-            is RoomAbstractDatabase.Builder.Memory -> context.roomInMemory<SomeRoomDatabase>()
-            is RoomAbstractDatabase.Builder.Disk -> context.roomOnDisk<SomeRoomDatabase>(databaseName)
+            is RoomBuilder.Memory -> context.roomInMemory<SomeRoomDatabase>()
+            is RoomBuilder.Disk -> context.roomOnDisk<SomeRoomDatabase>(databaseName)
         }.build()
         return SomeRoomConcrete(room)
     }
@@ -33,11 +42,11 @@ internal class AndroidTestRoom {
 
     @Test
     fun disk() {
-        RoomAbstractDatabase.Builder.Disk(context, "database").build()
+        RoomBuilder.Disk(context, "database").build()
     }
 
     @Test
     fun memory() {
-        RoomAbstractDatabase.Builder.Memory(context).build()
+        RoomBuilder.Memory(context).build()
     }
 }
