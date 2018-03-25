@@ -2,6 +2,7 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlinx-serialization'
 
+group = 'com.github.recommune.sugar.preferences-serializer'
 
 android {
     compileSdkVersion sdkCompile

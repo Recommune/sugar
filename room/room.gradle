@@ -2,6 +2,8 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
 
+group = 'com.github.recommune.sugar.room'
+
 android {
     compileSdkVersion sdkCompile
     defaultConfig {
