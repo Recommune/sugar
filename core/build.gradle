@@ -1,8 +1,9 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
 apply plugin: 'com.github.dcendents.android-maven'
 
-group='com.github.recommune'
+group = 'com.github.recommune'
 
 android {
     compileSdkVersion sdkCompile
@@ -27,6 +28,8 @@ android {
 
 dependencies {
     implementation dependency_jvm.kotlin_stdlib
+
+    implementation dependency_android.support_library
 
     androidTestImplementation dependency_jvm.junit
     androidTestImplementation dependency_jvm.kotlin_junit
