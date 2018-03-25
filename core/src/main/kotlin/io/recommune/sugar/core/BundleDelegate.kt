@@ -328,6 +328,7 @@ sealed class BundleDelegate<T>(
         }
     }
 
+    @Suppress("unchecked_cast")
     class ParcelableArray<T : android.os.Parcelable>(key: kotlin.String) : BundleDelegate<Array<T>>(key) {
 
         override fun getValue(thisRef: android.os.Bundle, property: KProperty<*>): Array<T> {

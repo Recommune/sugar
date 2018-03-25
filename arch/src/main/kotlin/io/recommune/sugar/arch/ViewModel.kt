@@ -31,7 +31,7 @@ inline fun <reified T : ViewModel> FragmentActivity.viewModel(key: String, facto
     return ViewModelProviders.of(this, factory).get(key, T::class.java)
 }
 
-@Suppress("UNCHECKED_CAST")
+@Suppress("unchecked_cast")
 inline fun <reified T : ViewModel> viewModelFactory(crossinline factory: () -> T): ViewModelProvider.Factory {
     return object : ViewModelProvider.Factory {
 
