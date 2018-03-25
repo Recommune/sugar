@@ -1,5 +1,6 @@
 package io.recommune.sugar.arch
 
+import android.app.Application
 import android.arch.lifecycle.AndroidViewModel
 import android.arch.lifecycle.ViewModel
 import android.support.test.runner.AndroidJUnit4
@@ -21,7 +22,7 @@ internal class AndroidTestViewModel : AndroidTest() {
         private const val key2 = "key2"
     }
 
-    private class SomeAndroidViewModel(application: SomeApplication, val id: String) : AndroidViewModel(application)
+    private class SomeAndroidViewModel(application: Application, val id: String) : AndroidViewModel(application)
 
     private class SomeViewModel(val id: String) : ViewModel()
 
@@ -44,7 +45,6 @@ internal class AndroidTestViewModel : AndroidTest() {
     @Test
     fun androidViewModel() {
         activityTestRule.activity.apply {
-            val application = application as SomeApplication
             val factory1 = viewModelFactory { SomeAndroidViewModel(application, id1) }
             val factory2 = viewModelFactory { SomeAndroidViewModel(application, id2) }
             val viewModel1 = viewModel<SomeAndroidViewModel>(key1, factory1)
