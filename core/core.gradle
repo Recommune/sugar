@@ -3,6 +3,8 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'com.github.dcendents.android-maven'
 
+group = "com.github.recommune.sugar-core"
+
 android {
     compileSdkVersion sdkCompile
     defaultConfig {
