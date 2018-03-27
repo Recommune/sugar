@@ -1,12 +1,12 @@
 package io.recommune.sugar.preferences.serializer
 
-import io.recommune.sugar.preferences.SharedPreferencesDelegate
+import io.recommune.sugar.preferences.Converter
 import kotlinx.serialization.json.JSON
 import kotlinx.serialization.serializer
 import kotlin.reflect.KClass
 
 
-class ConverterSerializer(private val json: JSON) : SharedPreferencesDelegate.Converter {
+class ConverterSerializer(private val json: JSON) : Converter {
 
     override fun <T : Any> toString(src: T, clazz: KClass<T>): String {
         return json.stringify(clazz.serializer(), src)

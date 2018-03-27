@@ -95,10 +95,21 @@ sealed class SharedPreferencesDelegate<T>(
         }
     }
 
-    interface Converter {
+    class ItemNullable<T : Any>(
+        default: T?,
+        private val converter: Converter,
+        private val clazz: KClass<T>,
+        key: kotlin.String? = null
+    ) : SharedPreferencesDelegate<T?>(default, key) {
 
-        fun <T : Any> toString(src: T, clazz: KClass<T>): kotlin.String
+        override fun getValue(thisRef: SharedPreferences, property: KProperty<*>): T? {
+            val string = thisRef.getString(key ?: property.name, null)
+            return converter.fromString(string, clazz) ?: default
+        }
 
-        fun <T : Any> fromString(src: kotlin.String?, clazz: KClass<T>): T?
+        override fun setValue(thisRef: SharedPreferences, property: KProperty<*>, value: T?) {
+            val string = if (value != null) converter.toString(value, clazz) else null
+            thisRef.edit().putString(key ?: property.name, string).apply()
+        }
     }
 }
