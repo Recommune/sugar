@@ -35,8 +35,8 @@ inline fun <reified T : ViewModel> FragmentActivity.viewModel(key: String, facto
 inline fun <reified T : ViewModel> viewModelFactory(crossinline factory: () -> T): ViewModelProvider.Factory {
     return object : ViewModelProvider.Factory {
 
-        override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-            return factory() as T
+        override fun <U : ViewModel?> create(modelClass: Class<U>): U {
+            return factory() as U
         }
     }
 }
