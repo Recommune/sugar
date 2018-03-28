@@ -1,40 +1,14 @@
-apply plugin: 'com.android.library'
-apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
-apply plugin: 'com.github.dcendents.android-maven'
-
-group = "com.github.recommune.sugar-core"
-
-android {
-    compileSdkVersion sdkCompile
-    defaultConfig {
-        minSdkVersion sdkMin
-        targetSdkVersion sdkTarget
-        versionCode versionCode
-        versionName versionName
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-    }
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        }
-    }
-    sourceSets {
-        main.java.srcDirs += 'src/main/kotlin'
-        androidTest.java.srcDirs += 'src/androidTest/kotlin'
-    }
-}
+apply plugin: 'kotlin-platform-common'
 
 dependencies {
-    implementation dependency_jvm.kotlin_stdlib
+    implementation dependency_common.kotlin_stdlib
+    implementation dependency_common.coroutines
 
-    implementation dependency_android.support_library
+    testImplementation dependency_common.kotlin_test
+}
 
-    androidTestImplementation dependency_jvm.junit
-    androidTestImplementation dependency_jvm.kotlin_junit
-
-    androidTestImplementation(dependency_android.espresso, {
-        exclude group: 'com.android.support', module: 'support-annotations'
-    })
+kotlin {
+    experimental {
+        coroutines "enable"
+    }
 }

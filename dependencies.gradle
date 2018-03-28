@@ -5,6 +5,7 @@ ext.with {
     archCompiler = '1.1.1'
     buildTools = '27.0.3'
     benManes = '0.17.0'
+    coroutines = '0.22.2'
     espresso = '3.0.1'
     gson = '2.8.2'
     junit = '4.12'
@@ -17,10 +18,18 @@ ext.with {
     kotlins = '1.2.31'
     versionCode = 1
     versionName = '1.0'
+    dependency_common = [
+            kotlin_stdlib: "org.jetbrains.kotlin:kotlin-stdlib-common:$kotlins",
+            serialization: "org.jetbrains.kotlinx:kotlinx-serialization-runtime-common:$serialization",
+            coroutines   : "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines",
+            kotlin_test  : ["org.jetbrains.kotlin:kotlin-test-common:$kotlins",
+                            "org.jetbrains.kotlin:kotlin-test-annotations-common:$kotlins"],
+    ]
     dependency_jvm = [
             kotlin_stdlib: "org.jetbrains.kotlin:kotlin-stdlib-jre8:$kotlins",
             junit        : "junit:junit:$junit",
-            kotlin_junit : [
+            coroutines   : "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines",
+            kotlin_test  : [
                     "org.jetbrains.kotlin:kotlin-test:$kotlins",
                     "org.jetbrains.kotlin:kotlin-test-junit:$kotlins"
             ],
@@ -30,6 +39,7 @@ ext.with {
             serialization: "org.jetbrains.kotlinx:kotlinx-serialization-runtime:$serialization"
     ]
     dependency_android = [
+            coroutines     : "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines",
             arch_extensions: "android.arch.lifecycle:extensions:$archRuntime",
             arch_compiler  : "android.arch.lifecycle:common-java8:$archCompiler",
             support_library: "com.android.support:appcompat-v7:$supportLibrary",

@@ -1,4 +1,4 @@
-package io.recommune.sugar.core
+package io.recommune.sugar.android
 
 import android.support.v7.app.AppCompatActivity
 
