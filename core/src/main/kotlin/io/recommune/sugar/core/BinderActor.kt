@@ -17,5 +17,5 @@ abstract class BinderActor<T>(coroutineContext: CoroutineContext, default: Bind?
         }
     }
 
-    abstract override suspend fun handle(message: Bind)
+    abstract override suspend fun handle(bind: Bind)
 }

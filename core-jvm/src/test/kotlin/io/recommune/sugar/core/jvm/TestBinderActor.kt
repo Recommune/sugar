@@ -27,8 +27,8 @@ class TestBinderActor {
         val deferred = CompletableDeferred<Boolean>()
         val binder = object : BinderActor<String>(EmptyCoroutineContext, Bind.Detached(Unit)) {
 
-            override suspend fun handle(message: Bind) {
-                message.isAttached<String> {
+            override suspend fun handle(bind: Bind) {
+                bind.isAttached<String> {
                     deferred.complete(state is Bind.Attached<*>)
                 }
             }
@@ -48,8 +48,8 @@ class TestBinderActor {
         val deferred = CompletableDeferred<Boolean>()
         val binder = object : BinderActor<String>(EmptyCoroutineContext, Bind.Attached(Unit)) {
 
-            override suspend fun handle(message: Bind) {
-                message.isDetached<Int> {
+            override suspend fun handle(bind: Bind) {
+                bind.isDetached<Int> {
                     deferred.complete(state is Bind.Detached<*> && it == int)
                 }
             }

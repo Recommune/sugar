@@ -5,5 +5,5 @@ interface Binder {
 
     var state: Bind
 
-    suspend fun handle(message: Bind)
+    suspend fun handle(bind: Bind)
 }
