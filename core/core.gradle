@@ -1,5 +1,7 @@
 apply plugin: 'kotlin-platform-common'
 
+group = "com.github.recommune.sugar-core"
+
 dependencies {
     implementation dependency_common.kotlin_stdlib
     implementation dependency_common.coroutines

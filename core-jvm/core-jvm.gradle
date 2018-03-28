@@ -1,5 +1,7 @@
 apply plugin: 'kotlin-platform-jvm'
 
+group = "com.github.recommune.sugar-core-jvm"
+
 dependencies {
     expectedBy project(':core')
 
