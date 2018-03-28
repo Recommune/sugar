@@ -1,21 +1,21 @@
 package io.recommune.sugar.core
 
 
-sealed class Bind<out T> {
+sealed class Bind {
 
-    class Attached<out T>(val view: T) : Bind<T>()
+    class Attached<out T>(val payload: T? = null) : Bind()
 
-    class Detached<out T> : Bind<T>()
+    class Detached<out T>(val item: T? = null) : Bind()
 
-    suspend fun isAttached(completion: suspend (T) -> Unit) {
+    suspend inline fun <reified T> isAttached(noinline completion: suspend (T) -> Unit) {
         when (this) {
-            is Attached<T> -> completion(view)
+            is Attached<*> -> completion(payload as T)
         }
     }
 
-    suspend fun isDetached(completion: suspend () -> Unit) {
+    suspend inline fun <reified T> isDetached(noinline completion: suspend (T) -> Unit) {
         when (this) {
-            is Detached<T> -> completion()
+            is Detached<*> -> completion(item as T)
         }
     }
 }

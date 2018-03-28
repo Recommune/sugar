@@ -1,9 +1,9 @@
 package io.recommune.sugar.core
 
 
-interface Binder<T> {
+interface Binder {
 
-    var state: Bind<T>
+    var state: Bind
 
-    suspend fun handle(message: Bind<T>)
+    suspend fun handle(message: Bind)
 }
