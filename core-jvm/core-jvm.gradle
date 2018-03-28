@@ -9,6 +9,12 @@ dependencies {
     testImplementation dependency_jvm.kotlin_test
 }
 
+kotlin {
+    experimental {
+        coroutines "enable"
+    }
+}
+
 compileKotlin {
     kotlinOptions.jvmTarget = "1.8"
 }
