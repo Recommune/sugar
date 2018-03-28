@@ -15,6 +15,14 @@ inline fun <reified T : ViewModel> FragmentActivity.viewModel(): T {
     return ViewModelProviders.of(this).get(T::class.java)
 }
 
+inline fun <reified T : ViewModel> Fragment.viewModel(key: String): T {
+    return ViewModelProviders.of(this).get(key, T::class.java)
+}
+
+inline fun <reified T : ViewModel> FragmentActivity.viewModel(key: String): T {
+    return ViewModelProviders.of(this).get(key, T::class.java)
+}
+
 inline fun <reified T : ViewModel> Fragment.viewModel(factory: ViewModelProvider.Factory): T {
     return ViewModelProviders.of(this, factory).get(T::class.java)
 }
