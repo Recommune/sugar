@@ -1,11 +1,11 @@
 ext.with {
     androidMaven = '2.0'
-    androidTools = '3.0.1'
+    androidTools = '3.1.0'
     archRuntime = '1.1.1'
     archCompiler = '1.1.1'
     buildTools = '27.0.3'
     benManes = '0.17.0'
-    coroutines = '0.22.2'
+    coroutines = '0.22.5'
     espresso = '3.0.1'
     gson = '2.8.2'
     junit = '4.12'
