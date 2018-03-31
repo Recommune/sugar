@@ -1,9 +1,21 @@
 package io.recommune.sugar.core
 
 
-interface Binder {
+sealed class Binder<out T> {
 
-    var state: Bind
+    class Attached<out T>(val payload: T) : Binder<T>()
 
-    suspend fun handle(bind: Bind)
+    class Detached<out T>(val payload: T) : Binder<T>()
+
+    fun isAttached(completion: (T) -> Unit) {
+        when (this) {
+            is Attached -> completion(payload)
+        }
+    }
+
+    fun isDetached(completion: (T) -> Unit) {
+        when (this) {
+            is Detached -> completion(payload)
+        }
+    }
 }
