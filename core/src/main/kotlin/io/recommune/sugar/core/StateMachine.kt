@@ -10,4 +10,10 @@ abstract class StateMachine<T>(initialState: T) {
         }
 
     abstract fun handle(bind: T)
+
+    inline fun <reified S : T> isState(completion: (S) -> Unit) {
+        when (state) {
+            is S -> completion(state as S)
+        }
+    }
 }

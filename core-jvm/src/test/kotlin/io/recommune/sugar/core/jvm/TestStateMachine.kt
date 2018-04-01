@@ -25,73 +25,56 @@ class TestStateMachine {
 
     @Test
     fun attached() {
-        val deferred = CompletableDeferred<Binder<String>>()
-        val stateMachine = object : StateMachine<Binder<String>>(Binder.Detached(stringDefault)) {
+        val deferred = CompletableDeferred<Binder>()
+        val stateMachine = object : StateMachine<Binder>(Binder.Detached(stringDefault)) {
 
-            override fun handle(bind: Binder<String>) {
-                bind.isAttached {
-                    deferred.complete(bind)
-                }
+            override fun handle(bind: Binder) {
+                deferred.complete(bind)
             }
         }
-        val state = stateMachine.state
-        when (state) {
-            is Binder.Attached -> {
-                assertFails { }
-            }
-            is Binder.Detached -> {
-                assertEquals(state.payload, stringDefault)
-            }
+        stateMachine.isState<Binder.Detached<String>> {
+            assertEquals(it.payload, stringDefault)
+            stateMachine.state = Binder.Attached(stringValue)
         }
-        stateMachine.state = Binder.Attached(stringValue)
         val bind = runBlocking {
             withTimeout(1000L) {
-                stateMachine.state = Binder.Attached(stringValue)
                 deferred.await()
             }
         }
         when (bind) {
-            is Binder.Attached -> {
+            is Binder.Attached<*> -> {
                 assertEquals(stringValue, bind.payload)
             }
-            is Binder.Detached -> {
-                assertFails { }
+            is Binder.Detached<*> -> {
+               assertFails {  }
             }
         }
     }
 
     @Test
     fun detached() {
-        val deferred = CompletableDeferred<Binder<Int>>()
-        val stateMachine = object : StateMachine<Binder<Int>>(Binder.Attached(intDefault)) {
+        val deferred = CompletableDeferred<Binder>()
+        val stateMachine = object : StateMachine<Binder>(Binder.Attached(intDefault)) {
 
-            override fun handle(bind: Binder<Int>) {
-                bind.isDetached {
-                    deferred.complete(bind)
-                }
+            override fun handle(bind: Binder) {
+                deferred.complete(bind)
             }
         }
 
-        val state = stateMachine.state
-        when (state) {
-            is Binder.Attached -> {
-                assertEquals(state.payload, intDefault)
-            }
-            is Binder.Detached -> {
-                assertFails { }
-            }
+        stateMachine.isState<Binder.Attached<Int>> {
+            assertEquals(it.payload, intDefault)
+            stateMachine.state = Binder.Detached(intValue)
         }
         val bind = runBlocking {
             withTimeout(1000L) {
-                stateMachine.state = Binder.Detached(intValue)
                 deferred.await()
             }
         }
         when (bind) {
-            is Binder.Attached -> {
+            is Binder.Attached<*> -> {
                 assertFails { }
             }
-            is Binder.Detached -> {
+            is Binder.Detached<*> -> {
                 assertEquals(intValue, bind.payload)
             }
         }
