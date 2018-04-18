@@ -1,4 +1,7 @@
 apply plugin: 'kotlin-platform-common'
+apply plugin: 'com.github.dcendents.android-maven'
+
+group = "com.github.recommune.sugar-core-jvm"
 
 dependencies {
     implementation dependency_common.kotlin_stdlib
