@@ -15,7 +15,7 @@ ext.with {
     sdkTarget = 27
     serialization = '0.4.2'
     supportLibrary = '27.1.0'
-    kotlins = '1.2.31'
+    kotlins = '1.2.40'
     versionCode = 1
     versionName = '1.0'
     dependency_common = [
@@ -26,7 +26,7 @@ ext.with {
                             "org.jetbrains.kotlin:kotlin-test-annotations-common:$kotlins"],
     ]
     dependency_jvm = [
-            kotlin_stdlib: "org.jetbrains.kotlin:kotlin-stdlib-jre8:$kotlins",
+            kotlin_stdlib: "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlins",
             junit        : "junit:junit:$junit",
             coroutines   : "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines",
             kotlin_test  : [
