@@ -15,7 +15,7 @@ ext.with {
     sdkTarget = 27
     serialization = '0.4.2'
     supportLibrary = '27.1.0'
-    kotlins = '1.2.40'
+    kotlins = '1.2.41'
     versionCode = 1
     versionName = '1.0'
     dependency_common = [
