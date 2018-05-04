@@ -17,7 +17,7 @@ internal class AndroidTestAndroidView {
     @JvmField
     val activityTestRule = ActivityTestRule<SomeActivity>(SomeActivity::class.java)
 
-    private class SomeAndroidView(override val view: View) : AndroidView {
+    private class SomeAndroidView(override val view: View) : AndroidView<View> {
 
         companion object : AndroidView.Inflater {
 

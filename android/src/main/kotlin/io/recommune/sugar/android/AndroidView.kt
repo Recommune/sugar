@@ -4,9 +4,9 @@ import android.view.View
 import android.view.ViewGroup
 
 
-interface AndroidView {
+interface AndroidView<T: View> {
 
-    val view: View
+    val view: T
 
     interface Inflater {
 
