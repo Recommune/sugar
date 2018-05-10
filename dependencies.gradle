@@ -6,15 +6,16 @@ ext.with {
     buildTools = '27.0.3'
     benManes = '0.17.0'
     coroutines = '0.22.5'
-    espresso = '3.0.1'
+    espresso = '3.0.2'
     gson = '2.8.2'
     junit = '4.12'
-    room = '1.0.0'
+    room = '1.1.0'
     sdkCompile = 27
     sdkMin = 21
     sdkTarget = 27
     serialization = '0.4.2'
     supportLibrary = '27.1.0'
+    testRules = '1.0.2'
     kotlins = '1.2.41'
     versionCode = 1
     versionName = '1.0'
@@ -44,6 +45,7 @@ ext.with {
             arch_compiler  : "android.arch.lifecycle:common-java8:$archCompiler",
             support_library: "com.android.support:appcompat-v7:$supportLibrary",
             espresso       : "com.android.support.test.espresso:espresso-core:$espresso",
+            test_rules      : "com.android.support.test:rules:$testRules",
             room_runtime   : "android.arch.persistence.room:runtime:$room",
             room_compiler  : "android.arch.persistence.room:compiler:$room",
             room_test      : "android.arch.persistence.room:testing:$room",

@@ -37,6 +37,8 @@ dependencies {
     androidTestImplementation dependency_jvm.junit
     androidTestImplementation dependency_jvm.kotlin_test
 
+    androidTestImplementation dependency_android.test_rules
+
     androidTestImplementation(dependency_android.espresso, {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
