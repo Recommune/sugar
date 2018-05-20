@@ -10,11 +10,11 @@ ext.with {
     gson = '2.8.2'
     junit = '4.12'
     room = '1.1.0'
-    sdkCompile = 27
+    sdkCompile = 'android-P'
     sdkMin = 21
-    sdkTarget = 27
+    sdkTarget = 28
     serialization = '0.4.2'
-    supportLibrary = '27.1.0'
+    appcompat = '28.0.0-alpha1'
     testRules = '1.0.2'
     kotlins = '1.2.41'
     versionCode = 1
@@ -43,7 +43,7 @@ ext.with {
             coroutines     : "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines",
             arch_extensions: "android.arch.lifecycle:extensions:$archRuntime",
             arch_compiler  : "android.arch.lifecycle:common-java8:$archCompiler",
-            support_library: "com.android.support:appcompat-v7:$supportLibrary",
+            support_library: "com.android.support:appcompat-v7:$appcompat",
             espresso       : "com.android.support.test.espresso:espresso-core:$espresso",
             test_rules      : "com.android.support.test:rules:$testRules",
             room_runtime   : "android.arch.persistence.room:runtime:$room",
