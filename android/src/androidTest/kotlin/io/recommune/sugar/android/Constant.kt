@@ -44,7 +44,7 @@ internal object Constant {
     val booleanArray = booleanArrayOf(booleanValue, booleanDefault)
     val shortArray = shortArrayOf(shortValue, shortDefault)
     val intArray = intArrayOf(intValue, intDefault)
-    val intArrayList = arrayListOf(intValue, intDefault)
+    val intArrayList = arrayListOf<Int>(intValue, intDefault)
     val longArray = longArrayOf(longValue, longDefault)
     val floatArray = floatArrayOf(floatValue, floatDefault)
     val doubleArray = doubleArrayOf(doubleValue, doubleDefault)

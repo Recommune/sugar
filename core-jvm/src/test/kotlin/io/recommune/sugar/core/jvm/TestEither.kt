@@ -18,7 +18,6 @@ class TestEither {
         val right = { right: Either.Right<Int, String> -> assertEquals("3", right.data) }
 
         either.either(left, right)
-        either.isLeft(left).isRight(right)
         when (either) {
             is Either.Left -> assertEquals(0, either.data)
             is Either.Right -> assertEquals("3", either.data)
