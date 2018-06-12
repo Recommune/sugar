@@ -2,7 +2,6 @@ package io.recommune.sugar.preferences
 
 import android.content.SharedPreferences
 import kotlin.properties.ReadWriteProperty
-import kotlin.reflect.KClass
 import kotlin.reflect.KProperty
 
 
@@ -74,42 +73,6 @@ sealed class SharedPreferencesDelegate<T>(
 
         override fun setValue(thisRef: SharedPreferences, property: KProperty<*>, value: Set<kotlin.String>) {
             thisRef.edit().putStringSet(key ?: property.name, value).apply()
-        }
-    }
-
-    class Item<T : Any>(
-        default: T,
-        private val converter: Converter,
-        private val clazz: KClass<T>,
-        key: kotlin.String? = null
-    ) : SharedPreferencesDelegate<T>(default, key) {
-
-        override fun getValue(thisRef: SharedPreferences, property: KProperty<*>): T {
-            val string = thisRef.getString(key ?: property.name, null)
-            return converter.fromString(string, clazz) ?: default
-        }
-
-        override fun setValue(thisRef: SharedPreferences, property: KProperty<*>, value: T) {
-            val string = converter.toString(value, clazz)
-            thisRef.edit().putString(key ?: property.name, string).apply()
-        }
-    }
-
-    class ItemNullable<T : Any>(
-        default: T?,
-        private val converter: Converter,
-        private val clazz: KClass<T>,
-        key: kotlin.String? = null
-    ) : SharedPreferencesDelegate<T?>(default, key) {
-
-        override fun getValue(thisRef: SharedPreferences, property: KProperty<*>): T? {
-            val string = thisRef.getString(key ?: property.name, null)
-            return converter.fromString(string, clazz) ?: default
-        }
-
-        override fun setValue(thisRef: SharedPreferences, property: KProperty<*>, value: T?) {
-            val string = if (value != null) converter.toString(value, clazz) else null
-            thisRef.edit().putString(key ?: property.name, string).apply()
         }
     }
 }

@@ -21,7 +21,6 @@ ext.with {
     versionName = '1.0'
     dependency_common = [
             kotlin_stdlib: "org.jetbrains.kotlin:kotlin-stdlib-common:$kotlins",
-            serialization: "org.jetbrains.kotlinx:kotlinx-serialization-runtime-common:$serialization",
             coroutines   : "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines",
             kotlin_test  : ["org.jetbrains.kotlin:kotlin-test-common:$kotlins",
                             "org.jetbrains.kotlin:kotlin-test-annotations-common:$kotlins"],
@@ -33,11 +32,7 @@ ext.with {
             kotlin_test  : [
                     "org.jetbrains.kotlin:kotlin-test:$kotlins",
                     "org.jetbrains.kotlin:kotlin-test-junit:$kotlins"
-            ],
-            gson         : "com.google.code.gson:gson:$gson"
-    ]
-    dependency_runtime = [
-            serialization: "org.jetbrains.kotlinx:kotlinx-serialization-runtime:$serialization"
+            ]
     ]
     dependency_android = [
             coroutines     : "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines",
@@ -46,8 +41,5 @@ ext.with {
             support_library: "com.android.support:appcompat-v7:$appcompat",
             espresso       : "com.android.support.test.espresso:espresso-core:$espresso",
             test_rules      : "com.android.support.test:rules:$testRules",
-            room_runtime   : "android.arch.persistence.room:runtime:$room",
-            room_compiler  : "android.arch.persistence.room:compiler:$room",
-            room_test      : "android.arch.persistence.room:testing:$room",
     ]
 }

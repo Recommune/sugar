@@ -30,7 +30,6 @@ android {
 
 dependencies {
     implementation dependency_jvm.kotlin_stdlib
-    implementation dependency_jvm.gson
 
     androidTestImplementation dependency_jvm.junit
     androidTestImplementation dependency_jvm.kotlin_test

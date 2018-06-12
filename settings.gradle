@@ -1,6 +1,6 @@
 rootProject.name = 'Sugar'
 
-include ':android', ':preferences', ':preferences-gson', ':preferences-serializer', ':arch', ':room', ':core', ':core-jvm'
+include ':android', ':preferences', ':arch', ':core', ':core-jvm'
 
 void rename_recursively(project) {
     project.buildFileName = "${project.name}.gradle"
