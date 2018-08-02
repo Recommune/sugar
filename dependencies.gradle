@@ -4,7 +4,7 @@ ext.with {
     archCompiler = '1.1.1'
     buildTools = '28.0.0'
     benManes = '0.20.0'
-    coroutines = '0.23.4'
+    coroutines = '0.24.0'
     espresso = '3.0.2'
     junit = '4.12'
     room = '1.1.0'
@@ -13,7 +13,7 @@ ext.with {
     sdkTarget = 28
     appcompat = '28.0.0-alpha3'
     testRules = '1.0.2'
-    kotlins = '1.2.50'
+    kotlins = '1.2.60'
     versionCode = 1
     versionName = '1.0'
     dependency_common = [
@@ -37,6 +37,6 @@ ext.with {
             arch_compiler  : "android.arch.lifecycle:common-java8:$archCompiler",
             support_library: "com.android.support:appcompat-v7:$appcompat",
             espresso       : "com.android.support.test.espresso:espresso-core:$espresso",
-            test_rules      : "com.android.support.test:rules:$testRules",
+            test_rules     : "com.android.support.test:rules:$testRules",
     ]
 }
