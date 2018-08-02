@@ -1,4 +1,4 @@
-package io.recommune.sugar.android
+package io.recommune.sugar.android.ui.view
 
 import android.view.View
 
@@ -14,3 +14,5 @@ fun View.setGone() {
 fun View.setInvisible() {
     visibility = View.INVISIBLE
 }
+
+fun Boolean.toVisibility() = if (this) View.VISIBLE else View.GONE

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="duration_simple_icon">100</integer>
+    <integer name="duration_average_icon">200</integer>
+    <integer name="duration_complex_icon">500</integer>
+    <integer name="duration_simple_fade_in">150</integer>
+    <integer name="duration_simple_fade_out">75</integer>
+    <integer name="duration_complex_shape_change">200</integer>
+    <integer name="duration_complex_detailed">500</integer>
+    <integer name="duration_large_expand">300</integer>
+    <integer name="duration_large_collapse">250</integer>
+    <integer name="duration_medium_expand">250</integer>
+    <integer name="duration_medium_collapse">200</integer>
+</resources>

@@ -2,6 +2,7 @@ package io.recommune.sugar.android
 
 import android.support.test.rule.ActivityTestRule
 import android.view.View
+import io.recommune.sugar.android.ui.view.AndroidView
 import kotlinx.android.synthetic.main.activity.*
 import org.junit.Rule
 import org.junit.Test

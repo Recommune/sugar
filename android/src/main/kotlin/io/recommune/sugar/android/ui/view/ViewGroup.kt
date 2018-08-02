@@ -1,4 +1,4 @@
-package io.recommune.sugar.android
+package io.recommune.sugar.android.ui.view
 
 import android.view.LayoutInflater
 import android.view.View

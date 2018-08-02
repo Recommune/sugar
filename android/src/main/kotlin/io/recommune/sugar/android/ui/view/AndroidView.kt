@@ -1,4 +1,4 @@
-package io.recommune.sugar.android
+package io.recommune.sugar.android.ui.view
 
 import android.view.View
 import android.view.ViewGroup
